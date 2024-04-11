@@ -52,10 +52,10 @@ describe("Payments test (with setup and tear-down)", () => {
         updatePaymentTable();
         updateSummary();
         for (item of serverTbody.querySelectorAll("tr")) {
-          if (!item.getAttribute("id"))
-            continue;
-          if (item.getAttribute("id").substring(0, 6) === "server")
-            item.remove();
+            if (!item.getAttribute("id"))
+                continue;
+            if (item.getAttribute("id").substring(0, 6) === "server")
+                item.remove();
         }
     });
 });
