@@ -8,8 +8,15 @@ describe("Servers Test (with setup and tear-down)", () => {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
   afterEach(() => {
+    tipAmtInput.value = "";
+    billAmtInput.value = "";
     allServers = {};
+    allPayments = {};
     serverId = 0;
+    paymentId = 0;
+    updateServerTable();
+    updatePaymentTable();
+    updateSummary();
     for (item of serverTbody.querySelectorAll("tr")) {
       if (!item.getAttribute("id"))
         continue;
@@ -62,6 +69,12 @@ describe("Should track multiple servers properly", () => {
     updateServerTable();
     updatePaymentTable();
     updateSummary();
+    for (item of serverTbody.querySelectorAll("tr")) {
+      if (!item.getAttribute("id"))
+        continue;
+      if (item.getAttribute("id").substring(0, 6) === "server")
+        item.remove();
+    }
   });
 });
 
@@ -106,5 +119,11 @@ describe("Tip Pool should work properly", () => {
     updateServerTable();
     updatePaymentTable();
     updateSummary();
+    for (item of serverTbody.querySelectorAll("tr")) {
+      if (!item.getAttribute("id"))
+        continue;
+      if (item.getAttribute("id").substring(0, 6) === "server")
+        item.remove();
+    }
   });
 });
