@@ -53,14 +53,15 @@ describe("Should track multiple servers properly", () => {
       expect(serverTbody.querySelector("#server" + serverCount++));
   });
   afterEach(() => {
+    tipAmtInput.value = "";
+    billAmtInput.value = "";
     allServers = {};
+    allPayments = {};
     serverId = 0;
-    for (item of serverTbody.querySelectorAll("tr")) {
-      if (!item.getAttribute("id"))
-        continue;
-      if (item.getAttribute("id").substring(0, 6) === "server")
-        removeServer(item.getAttribute("id"));
-    }
+    paymentId = 0;
+    updateServerTable();
+    updatePaymentTable();
+    updateSummary();
   });
 });
 
@@ -103,12 +104,6 @@ describe("Tip Pool should work properly", () => {
     serverId = 0;
     paymentId = 0;
     updateServerTable();
-    for (item of serverTbody.querySelectorAll("tr")) {
-      if (!item.getAttribute("id"))
-        continue;
-      if (item.getAttribute("id").substring(0, 6) === "server")
-        removeServer(item.getAttribute("id"));
-    }
     updatePaymentTable();
     updateSummary();
   });
