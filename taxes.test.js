@@ -1,4 +1,4 @@
-Fit('should calculate lower-bracket taxes', function () {
+it('should calculate lower-bracket taxes', function () {
   expect(calculateTaxes(10000)).toEqual(1500);
   expect(calculateTaxes(20000)).toEqual(3000);
 });
