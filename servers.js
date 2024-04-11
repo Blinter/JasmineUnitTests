@@ -4,7 +4,7 @@ let serverTbody = document.querySelector('#serverTable tbody');
 let allServers = {};
 let serverId = 0;
 serverForm.addEventListener('submit', submitServerInfo);
-document.addEventListener("click",registerClick);
+document.addEventListener("click", registerClick);
 /**
  * Checks add server form for valid input and updates the DOM and global variables. Clears the form.
  * @param {Event} e
@@ -13,7 +13,7 @@ document.addEventListener("click",registerClick);
 function submitServerInfo(e) {
   if (e) e.preventDefault();
   let serverName = serverNameInput.value;
-  if (!serverName) 
+  if (!serverName)
     return;
   allServers['server' + ++serverId] = { serverName };
   updateServerTable();
@@ -41,11 +41,11 @@ function updateServerTable() {
  * @param  {string} serverId unique Server ID
  * @returns {void}
  */
-function removeServer(serverId){
+function removeServer(serverId) {
   let tempServers = [];
   let tempServerId = 1;
-  for(item in allServers)
-    if(item && item != serverId)
+  for (item in allServers)
+    if (item && item != serverId)
       tempServers['server' + tempServerId++] = allServers[item];
   allServers = tempServers;
 }
@@ -55,8 +55,8 @@ function removeServer(serverId){
  * @returns {void}
  */
 function registerClick(e) {
-  if(e.target.className === "DELETE")
-    switch(e.target.id[0]) {
+  if (e.target.className === "DELETE")
+    switch (e.target.id[0]) {
       case "s":
         removeServer(e.target.id);
         updateServerTable();

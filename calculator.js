@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById("calc-form");
   if (form) {
     setupIntialValues();
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
       update();
     });
@@ -46,7 +46,7 @@ function update() {
  * @param {number} rate Percentage (i.e. 12% is 0.12)
  * @returns {number} rate / 12
  */
-function getRateMonthly(rate){
+function getRateMonthly(rate) {
   return rate / 12;
 }
 /**
@@ -54,7 +54,7 @@ function getRateMonthly(rate){
  * @param {number} total Amount to be rounded
  * @returns {number} Rounded Number
  */
-function rounding(total){
+function rounding(total) {
   return total.toFixed(2);
 }
 /**
@@ -62,7 +62,7 @@ function rounding(total){
  * @param {number} years Quantity of years to calculate total months in
  * @returns {number} Total Months
  */
-function totalMonthlyPayments(years){
+function totalMonthlyPayments(years) {
   return years * 12;
 }
 /**
@@ -71,7 +71,7 @@ function totalMonthlyPayments(years){
  * @param {number} years Quantity of years to calculate total months in
  * @returns {number} Total monthly payment without rounding
  */
-function getTotalMonthlyPayment(rate, years){
+function getTotalMonthlyPayment(rate, years) {
   return 1 - Math.pow(1 + getRateMonthly(rate), -totalMonthlyPayments(years));
 }
 /**
@@ -90,9 +90,9 @@ function calculateMonthlyPayment(values) {
  * @returns {void}
  */
 function updateMonthly(monthly) {
-  document.getElementById("monthly-payment").innerHTML = "$" + monthly + 
-  "<br/><br/>Yearly: $" + rounding(monthly*12) + 
-  "<br/>Total: $" + rounding(monthly*12*getCurrentUIValues().years) + 
-  "<br/>Interest: $" + rounding((monthly*12*getCurrentUIValues().years)-getCurrentUIValues().amount) +
-  " (" + ((((monthly*12*getCurrentUIValues().years)-getCurrentUIValues().amount) / getCurrentUIValues().amount) * 100).toFixed(4) + "%)";
+  document.getElementById("monthly-payment").innerHTML = "$" + monthly +
+    "<br/><br/>Yearly: $" + rounding(monthly * 12) +
+    "<br/>Total: $" + rounding(monthly * 12 * getCurrentUIValues().years) +
+    "<br/>Interest: $" + rounding((monthly * 12 * getCurrentUIValues().years) - getCurrentUIValues().amount) +
+    " (" + ((((monthly * 12 * getCurrentUIValues().years) - getCurrentUIValues().amount) / getCurrentUIValues().amount) * 100).toFixed(4) + "%)";
 }

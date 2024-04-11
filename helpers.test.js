@@ -1,4 +1,4 @@
-describe("Helpers test (with setup and tear-down)", () => {      
+describe("Helpers test (with setup and tear-down)", () => {
     beforeEach(() => {
         billAmtInput.value = "100";
         tipAmtInput.value = "20"; //20.00
@@ -29,10 +29,10 @@ describe("Helpers test (with setup and tear-down)", () => {
         expect(sumPaymentTotal("tipAmt")).toEqual(50);
     });
     it("Should calculate tip percentage correctly", () => {
-        expect(calculateTipPercent(100,25)).toEqual(25);
-        expect(calculateTipPercent(200,25)).toEqual(12.5);
-        expect(calculateTipPercent(10,25)).toEqual(250);
-        expect(calculateTipPercent(1,3)).toEqual(300);
+        expect(calculateTipPercent(100, 25)).toEqual(25);
+        expect(calculateTipPercent(200, 25)).toEqual(12.5);
+        expect(calculateTipPercent(10, 25)).toEqual(250);
+        expect(calculateTipPercent(1, 3)).toEqual(300);
     });
     it("should generate new td with specified value", () => {
         let newTr = document.createElement("tr");
@@ -47,15 +47,15 @@ describe("Helpers test (with setup and tear-down)", () => {
         expect(newTr.firstChild.innerHTML).toEqual("X");
     });
 
-  afterEach(() => {    
-    tipAmtInput.value = "";
-    billAmtInput.value = "";
-    allServers = {};
-    allPayments = {};
-    serverId = 0;
-    paymentId = 0;
-    updateServerTable();
-    updatePaymentTable();
-    updateSummary();
-  });
+    afterEach(() => {
+        tipAmtInput.value = "";
+        billAmtInput.value = "";
+        allServers = {};
+        allPayments = {};
+        serverId = 0;
+        paymentId = 0;
+        updateServerTable();
+        updatePaymentTable();
+        updateSummary();
+    });
 });

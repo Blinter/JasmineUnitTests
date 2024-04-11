@@ -10,7 +10,7 @@ body {
   }
 }
 
-header > h1 {
+header>h1 {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 3em;
   color: grey;
@@ -20,7 +20,7 @@ header > h1 {
   display: flex;
   width: 100%;
   flex-direction: row;
-  background-color: rgb(211,211,211);
+  background-color: rgb(211, 211, 211);
   color: black;
   font-size: 1.4em;
 }
@@ -29,13 +29,14 @@ header > h1 {
   .calc-container {
     font-size: .9em;
   }
+
   input {
     font-size: .9em;
     padding: 1px;
   }
 }
 
-.calc-container > form {
+.calc-container>form {
   display: flex;
   flex-direction: column;
   border: 2px solid darkgrey;
@@ -43,7 +44,7 @@ header > h1 {
   padding: 10px;
 }
 
-.calc-container > form > label {
+.calc-container>form>label {
   padding: 10px;
   padding-left: 0px;
   font-size: 1.3em;
@@ -54,7 +55,7 @@ button {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
-  background-color: rgb(150,150,150);
+  background-color: rgb(150, 150, 150);
   color: white;
   max-width: 300px;
   min-width: 230px;
@@ -70,7 +71,7 @@ input {
   font-size: 1.3em;
 }
 
-.calc-container > div {
+.calc-container>div {
   flex: 1;
   border: 2px solid darkgrey;
   padding-left: 5px;

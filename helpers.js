@@ -40,10 +40,10 @@ function appendTd(tr, value) {
 * @param {Element} tr Parent Element
 * @returns {void}
 */
-function appendDeleteBtn(tr){
- const newXButton = document.createElement("td");
- newXButton.innerText = "X";
- newXButton.setAttribute("id",tr.getAttribute("id"));  
- newXButton.className = "DELETE";
- tr.append(newXButton);
+function appendDeleteBtn(tr) {
+  const newXButton = document.createElement("td");
+  newXButton.innerText = "X";
+  newXButton.setAttribute("id", tr.getAttribute("id"));
+  newXButton.className = "DELETE";
+  tr.append(newXButton);
 }

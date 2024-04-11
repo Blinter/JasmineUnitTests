@@ -1,30 +1,30 @@
-describe("Payments test (with setup and tear-down)", () => {  
+describe("Payments test (with setup and tear-down)", () => {
     beforeEach(() => {
         billAmtInput.value = "100";
         tipAmtInput.value = "20";
     });
-  
-    it('should add new payment', () => {        
+
+    it('should add new payment', () => {
         submitPaymentInfo();
         expect(Object.keys(allPayments).length).toEqual(1);
         expect(allPayments["payment1"].billAmt).toEqual("100");
         expect(allPayments["payment1"].tipAmt).toEqual("20");
     });
-  
-    it('input empty should not allow adding payment', () => {          
+
+    it('input empty should not allow adding payment', () => {
         tipAmtInput.value = "";
         billAmtInput.value = "";
         submitPaymentInfo();
         expect(Object.keys(allPayments).length).toEqual(0);
     });
 
-    it('input empty should not create payment object', () => {          
+    it('input empty should not create payment object', () => {
         tipAmtInput.value = "";
         billAmtInput.value = "";
         expect(createCurPayment()).toEqual(undefined);
     });
-  
-    it('should append payment to table', () => {        
+
+    it('should append payment to table', () => {
         let curPayment = createCurPayment();
         allPayments['payment1'] = curPayment;
         updatePaymentTable();
@@ -38,10 +38,10 @@ describe("Payments test (with setup and tear-down)", () => {
     });
 
     it("Should create a curPayment table", () => {
-        expect(createCurPayment()).toEqual({ billAmt: "100", tipAmt: "20", tipPercent: 20});
+        expect(createCurPayment()).toEqual({ billAmt: "100", tipAmt: "20", tipPercent: 20 });
     });
-  
-    afterEach(() => {  
+
+    afterEach(() => {
         allPayments = {};
         allServers = {};
         tipAmtInput.value = "";
@@ -50,4 +50,4 @@ describe("Payments test (with setup and tear-down)", () => {
         updatePaymentTable();
         updateSummary();
     });
-  });
+});

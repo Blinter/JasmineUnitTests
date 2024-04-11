@@ -1,45 +1,45 @@
 
 it('should calculate the monthly rate correctly', () => {
-  expect(calculateMonthlyPayment({amount: 250000, rate: 0.25, years: 15})).toEqual("5338.82");
-  expect(calculateMonthlyPayment({amount: 5000000, rate: 0.30, years: 2.5})).toEqual("238888.20");
-  expect(calculateMonthlyPayment({amount: 2000, rate: 0.2999, years: 0.5})).toEqual("363.09");
-  expect(calculateMonthlyPayment({amount: 1, rate: 0.0001, years: 3})).toEqual("0.03");
-  expect(calculateMonthlyPayment({amount: 2000, rate: 0.2999, years: 0.5})).toEqual("363.09");
-  expect(calculateMonthlyPayment({amount: 999999, rate: 0.99, years: 100})).toEqual("82499.92");
-  expect(calculateMonthlyPayment({amount: 987654231.99, rate: 5.6848, years: 89})).toEqual("467884731.50");
+  expect(calculateMonthlyPayment({ amount: 250000, rate: 0.25, years: 15 })).toEqual("5338.82");
+  expect(calculateMonthlyPayment({ amount: 5000000, rate: 0.30, years: 2.5 })).toEqual("238888.20");
+  expect(calculateMonthlyPayment({ amount: 2000, rate: 0.2999, years: 0.5 })).toEqual("363.09");
+  expect(calculateMonthlyPayment({ amount: 1, rate: 0.0001, years: 3 })).toEqual("0.03");
+  expect(calculateMonthlyPayment({ amount: 2000, rate: 0.2999, years: 0.5 })).toEqual("363.09");
+  expect(calculateMonthlyPayment({ amount: 999999, rate: 0.99, years: 100 })).toEqual("82499.92");
+  expect(calculateMonthlyPayment({ amount: 987654231.99, rate: 5.6848, years: 89 })).toEqual("467884731.50");
 });
 
 it("should round properly", () => {
-  expect(calculateMonthlyPayment({amount: 8336.10, rate: 1.00, years: 8})).toEqual("694.99");
-  expect(calculateMonthlyPayment({amount: 8336.11, rate: 1.00, years: 8})).toEqual("695.00");
-  expect(calculateMonthlyPayment({amount: 8336.23, rate: 1.00, years: 8})).toEqual("695.01");
-  expect(calculateMonthlyPayment({amount: 8336.34, rate: 1.00, years: 8})).toEqual("695.01");
-  expect(calculateMonthlyPayment({amount: 8336.35, rate: 1.00, years: 8})).toEqual("695.02");
+  expect(calculateMonthlyPayment({ amount: 8336.10, rate: 1.00, years: 8 })).toEqual("694.99");
+  expect(calculateMonthlyPayment({ amount: 8336.11, rate: 1.00, years: 8 })).toEqual("695.00");
+  expect(calculateMonthlyPayment({ amount: 8336.23, rate: 1.00, years: 8 })).toEqual("695.01");
+  expect(calculateMonthlyPayment({ amount: 8336.34, rate: 1.00, years: 8 })).toEqual("695.01");
+  expect(calculateMonthlyPayment({ amount: 8336.35, rate: 1.00, years: 8 })).toEqual("695.02");
 });
 
 it("should handle high amounts", () => {
-  expect(calculateMonthlyPayment({amount: 9999999999999999999.99, rate: 10.000, years: 99.9999})).toEqual("8333333333333334016.00");
+  expect(calculateMonthlyPayment({ amount: 9999999999999999999.99, rate: 10.000, years: 99.9999 })).toEqual("8333333333333334016.00");
 });
 
 it("should return a result with 2 decimal places", () => {
-  expect(calculateMonthlyPayment({amount: 8336.11, rate: 1.00, years: 8})).toEqual("695.00");
+  expect(calculateMonthlyPayment({ amount: 8336.11, rate: 1.00, years: 8 })).toEqual("695.00");
 });
 
-it("should set Default UI values correctly", () => {  
+it("should set Default UI values correctly", () => {
   const amount = "100000";
   const years = "30";
   const rate = "0.06";
-  expect(getCurrentUIValues()).toEqual({amount: +amount, years: +years,rate: +rate});
+  expect(getCurrentUIValues()).toEqual({ amount: +amount, years: +years, rate: +rate });
 });
 
-it("should Get UI values correctly", () => {  
+it("should Get UI values correctly", () => {
   const amount = "100000";
   const years = "30";
   const rate = "0.06";
   document.getElementById("loan-amount").value = amount;
   document.getElementById("loan-years").value = years;
   document.getElementById("loan-rate").value = rate;
-  expect(getCurrentUIValues()).toEqual({amount: +amount, years: +years,rate: +rate});
+  expect(getCurrentUIValues()).toEqual({ amount: +amount, years: +years, rate: +rate });
 });
 
 it("should process getRateMonthly correctly", () => {
@@ -80,15 +80,15 @@ it("should calculate bottom half of monthly payment formula properly", () => {
 });
 
 describe("it should process calculated data correctly", () => {
-  beforeEach(() => {    
-  const amount = "100000";
-  const years = "30";
-  const rate = "0.06";
-  document.getElementById("loan-amount").value = amount;
-  document.getElementById("loan-years").value = years;
-  document.getElementById("loan-rate").value = rate;
+  beforeEach(() => {
+    const amount = "100000";
+    const years = "30";
+    const rate = "0.06";
+    document.getElementById("loan-amount").value = amount;
+    document.getElementById("loan-years").value = years;
+    document.getElementById("loan-rate").value = rate;
   });
-  it("should update DOM properly", () => {    
+  it("should update DOM properly", () => {
     let amount = "10000";
     let years = "3";
     let rate = "0.1999";
