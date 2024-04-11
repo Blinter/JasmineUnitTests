@@ -103,6 +103,12 @@ describe("Tip Pool should work properly", () => {
     serverId = 0;
     paymentId = 0;
     updateServerTable();
+    for (item of serverTbody.querySelectorAll("tr")) {
+      if (!item.getAttribute("id"))
+        continue;
+      if (item.getAttribute("id").substring(0, 6) === "server")
+        removeServer(item.getAttribute("id"));
+    }
     updatePaymentTable();
     updateSummary();
   });
